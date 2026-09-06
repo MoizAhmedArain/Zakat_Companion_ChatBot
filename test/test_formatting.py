@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from langchain_core.documents import Document
-from formating import format_docs
+from formatting import format_docs
 
 
 def test_format_docs_joins_with_blank_line():

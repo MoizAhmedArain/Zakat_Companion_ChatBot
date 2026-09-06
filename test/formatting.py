@@ -1,7 +1,7 @@
 """
-Small, dependency-light helpers used by rag.py.
-Split out from rag.py so they can be unit tested without importing
-chatbot.py's live Qdrant connection.
+Small, dependency-light helpers used by the RAG pipeline.
+Split out so they can be unit tested without importing chatbot.py's live
+Qdrant connection.
 """
 
 

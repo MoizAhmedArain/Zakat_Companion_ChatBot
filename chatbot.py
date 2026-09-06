@@ -1,16 +1,17 @@
 import logging
-from langchain_chroma import Chroma
-from config import CHROMA_PATH, COLLECTION_NAME, get_embedding_model
+from langchain_qdrant import QdrantVectorStore
+
+from config import COLLECTION_NAME, get_embedding_model, get_qdrant_client
 
 logger = logging.getLogger(__name__)
 
 def get_vector_store():
     try:
         embedding_model = get_embedding_model()
-        return Chroma(
-            persist_directory=CHROMA_PATH,
+        return QdrantVectorStore(
+            client=get_qdrant_client(),
             collection_name=COLLECTION_NAME,
-            embedding_function=embedding_model,
+            embedding=embedding_model,
         )
     except (OSError, RuntimeError, ValueError) as error:
         logger.exception("Unable to load the vector store.")

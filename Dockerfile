@@ -1,6 +1,6 @@
 # The deployed container runs app.py (the API server) only.
-# ingest.py stays a script you run locally/manually to populate Qdrant --
-# it's not a long-running service, so it doesn't belong in this image.
+# Qdrant is the external runtime vector store. Run ingestion separately before
+# deploying whenever the documents or collection need to be updated.
 
 FROM python:3.11-slim
 
